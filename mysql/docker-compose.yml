@@ -1,0 +1,17 @@
+version: '3.1'
+services:
+  mysql:
+    image: mysql:8.0  # Cambiado de latest a 8.0
+    container_name: mysql_server
+    environment:
+      MYSQL_ROOT_PASSWORD: root  # Asegúrate de cambiar esto por una contraseña segura
+      MYSQLD_OPTS: "--sql_mode=STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION"
+
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    command: --default-authentication-plugin=mysql_native_password
+
+volumes:
+  mysql_data:
