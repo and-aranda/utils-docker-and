@@ -1,0 +1,18 @@
+# Docker volumes y datos persistentes
+*_data/
+*/postgres/
+*/pgadmin/
+*/custom-nodes/
+ollama_models/
+
+# Archivos de configuración con credenciales
+.env
+*.env
+
+# Logs
+*.log
+logs/
+
+# Archivos temporales
+*.tmp
+*.temp

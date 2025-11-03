@@ -1,0 +1,16 @@
+version: "3.9"
+
+services:
+  nats:
+    image: nats:latest
+    container_name: nats-server
+    ports:
+      - "4222:4222"   # Puerto para clientes NATS (conexiones TCP)
+      - "8222:8222"   # Puerto HTTP para el monitoring
+      - "6222:6222"   # Puerto para clustering (opcional, si no lo usas puedes quitarlo)
+    command: >
+      -js
+      -m 8222
+      --http_port 8222
+      --server_name my-nats
+    restart: unless-stopped

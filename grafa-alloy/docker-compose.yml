@@ -1,0 +1,14 @@
+services:
+  alloy:
+    image: grafana/alloy:latest
+    container_name: grafana-alloy
+    ports:
+      - "12345:12345"      # (opcional) UI/debug
+      - "4318:4318"        # OTLP/HTTP (traces/metrics/logs desde tus MS)
+    environment:
+      - GRAFANA_INSTANCE_ID=${GRAFANA_INSTANCE_ID}
+      - GRAFANA_API_KEY=${GRAFANA_API_KEY}
+    volumes:
+      - ./agent.river:/etc/alloy/agent.river:ro
+    command: ["run", "/etc/alloy/agent.river"]
+    restart: unless-stopped

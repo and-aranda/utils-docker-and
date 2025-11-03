@@ -1,0 +1,8 @@
+# Ollama models data
+ollama_models/
+
+# Docker volumes
+*_data/
+
+# Logs
+*.log
